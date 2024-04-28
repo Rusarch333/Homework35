@@ -17,7 +17,7 @@ const country1 = {
   area: 603628,
 }
 
-const countryFunc = {
+const countryProto = {
   getDensity: function () {
     return this.population/this.area;
   },
@@ -26,7 +26,7 @@ const countryFunc = {
   }
 }
 
-country1.__proto__ = countryFunc;
+country1.__proto__ = countryProto;
 
 console.log(country1);
 console.log(country1.getDensity());
