@@ -13,15 +13,24 @@
 
 const country1 = {
   name: 'Ukraine',
-  population: 33400000, // 2024
+  population: 35000000, // 2024
   area: 603628,
+}
+
+const countryFunc = {
   getDensity: function () {
     return this.population/this.area;
+  },
+  getInfo: function () {
+    return `Країна ${this.name} має популяцію населення ${this.population} одиниць та площу ${this.area} кілометрів квадратних`;
   }
 }
 
-console.log(country1, '\n');
-console.log(country1.getDensity(), '\n');
+country1.__proto__ = countryFunc;
+
+console.log(country1);
+console.log(country1.getDensity());
+console.log(country1.getInfo(), '\n');
 
 /**
  * Функція-конструктор, створює об'єкти типу Сountry (країна)
@@ -33,13 +42,21 @@ function Country(name, population, area) {
   this.name = name;
   this.population = population;
   this.area = area;
-  
-  this.getDensity = function () {
-    return this.population/this.area;
-  }
 }
 
-const country2 = new Country('Ukraine', 33400000, 603628);
+function CountryPrototype() {
+  this.getDensity = function () {
+    return this.population/this.area;
+  };
+  this.getInfo = function () {
+    return `Країна ${this.name} має популяцію населення ${this.population} одиниць та площу ${this.area} кілометрів квадратних`;
+  };
+}
 
-console.log(country2, '\n');
+Country.prototype = new CountryPrototype();
+
+const country2 = new Country('Ukraine', 35000000, 603628);
+
+console.log(country2);
 console.log(country2.getDensity());
+console.log(country2.getInfo());
