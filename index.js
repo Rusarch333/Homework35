@@ -13,7 +13,9 @@
 
 const countryProto = {
   getDensity: function () {
-    return `Густота населення країни становить ${this.population/this.area} осіб на км²`;
+    return `Густота населення країни становить ${
+      this.population / this.area
+    } осіб на км²`;
   },
   getInfo: function () {
     return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} км²`;
@@ -29,7 +31,7 @@ const country1 = {
 
 // country1.__proto__ = countryProto;
 
-console.log(country1)
+console.log(country1);
 console.log(country1.getInfo());
 console.log(country1.getDensity(), "\n");
 
@@ -47,7 +49,9 @@ function Country(name, population, area) {
 
 function CountryPrototype() {
   this.getDensity = function () {
-    return `Густота населення країни становить ${this.population/this.area} осіб на км²`;
+    return `Густота населення країни становить ${
+      this.population / this.area
+    } осіб на км²`;
   };
   this.getInfo = function () {
     return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} км²`;
