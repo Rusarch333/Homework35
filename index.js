@@ -11,30 +11,31 @@
 
 /* Перевірок ніяких поки не робити! */
 
-const country1 = {
-  name: 'Ukraine',
-  population: 35000000, // 2024
-  area: 603628,
-}
-
 const countryProto = {
   getDensity: function () {
-    return this.population/this.area;
+    return `Густота населення країни становить ${this.population/this.area} осіб на км²`;
   },
   getInfo: function () {
-    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} кілометрів квадратних`;
-  }
-}
+    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} км²`;
+  },
+};
 
-country1.__proto__ = countryProto;
+const country1 = {
+  name: "Ukraine",
+  population: 35000000, // 2024
+  area: 603628,
+  __proto__: countryProto,
+};
 
-console.log(country1);
-console.log(country1.getDensity());
-console.log(country1.getInfo(), '\n');
+// country1.__proto__ = countryProto;
+
+console.log(country1)
+console.log(country1.getInfo());
+console.log(country1.getDensity(), "\n");
 
 /**
  * Функція-конструктор, створює об'єкти типу Сountry (країна)
- * @param {string} name 
+ * @param {string} name
  * @param {number} population // 2024
  * @param {number} area
  */
@@ -46,17 +47,17 @@ function Country(name, population, area) {
 
 function CountryPrototype() {
   this.getDensity = function () {
-    return this.population/this.area;
+    return `Густота населення країни становить ${this.population/this.area} осіб на км²`;
   };
   this.getInfo = function () {
-    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} кілометрів квадратних`;
+    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} км²`;
   };
 }
 
 Country.prototype = new CountryPrototype();
 
-const country2 = new Country('Ukraine', 35000000, 603628);
+const country2 = new Country("Ukraine", 35000000, 603628);
 
 console.log(country2);
-console.log(country2.getDensity());
 console.log(country2.getInfo());
+console.log(country2.getDensity());
