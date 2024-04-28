@@ -22,7 +22,7 @@ const countryProto = {
     return this.population/this.area;
   },
   getInfo: function () {
-    return `Країна ${this.name} має популяцію населення ${this.population} одиниць та площу ${this.area} кілометрів квадратних`;
+    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} кілометрів квадратних`;
   }
 }
 
@@ -49,7 +49,7 @@ function CountryPrototype() {
     return this.population/this.area;
   };
   this.getInfo = function () {
-    return `Країна ${this.name} має популяцію населення ${this.population} одиниць та площу ${this.area} кілометрів квадратних`;
+    return `Країна ${this.name} має популяцію населення ${this.population} осіб та площу ${this.area} кілометрів квадратних`;
   };
 }
 
